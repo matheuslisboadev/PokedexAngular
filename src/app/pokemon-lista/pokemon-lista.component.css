@@ -1,0 +1,183 @@
+.pokemon-grid {
+    display: grid;
+    grid-gap: 16px;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.pokemon-grid .box {
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+.box {
+  height: 80%;
+  width: 60%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 2px solid #FF0000; /* Adicione esta linha para a borda vermelha */
+}
+.box img {
+    max-width: 100%;
+    height: auto;
+}
+
+.box p {
+    font-size: 16px; 
+    line-height: 1.6;
+}
+pagination-controls{
+    text-align: center;
+}
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    color: #333;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.modal-content b {
+    font-weight: bold;
+}
+
+.modal-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.modal-content li {
+    font-style: italic;
+}
+/* Tipos de Pokémon e cores correspondentes */
+.normal {
+  border: 2px solid #A8A77A; /* Cor Normal */
+}
+
+.fire {
+  border: 2px solid #EE8130; /* Cor Fogo */
+}
+
+.water {
+  border: 2px solid #6390F0; /* Cor Água */
+}
+
+.electric {
+  border: 2px solid #F7D02C; /* Cor Elétrico */
+}
+
+.grass {
+  border: 2px solid #7AC74C; /* Cor Grama */
+}
+
+.ice {
+  border: 2px solid #96D9D6; /* Cor Gelo */
+}
+
+.fighting {
+  border: 2px solid #C22E28; /* Cor Lutador */
+}
+
+.poison {
+  border: 2px solid #A33EA1; /* Cor Veneno */
+}
+
+.ground {
+  border: 2px solid #E2BF65; /* Cor Terra */
+}
+
+.flying {
+  border: 2px solid #A98FF3; /* Cor Voador */
+}
+
+.rock {
+  border: 2px solid #B6A136; /* Cor Rocha */
+}
+
+.bug {
+  border: 2px solid #A6B91A; /* Cor Inseto */
+}
+
+.ghost {
+  border: 2px solid #735797; /* Cor Fantasma */
+}
+
+.steel {
+  border: 2px solid #B7B7CE; /* Cor Aço */
+}
+
+.fire {
+  border: 2px solid #EE8130; /* Cor Fogo */
+}
+
+.water {
+  border: 2px solid #6390F0; /* Cor Água */
+}
+
+.electric {
+  border: 2px solid #F7D02C; /* Cor Elétrico */
+}
+
+.psychic {
+  border: 2px solid #F95587; /* Cor Psíquico */
+}
+
+.ice {
+  border: 2px solid #96D9D6; /* Cor Gelo */
+}
+
+.dragon {
+  border: 2px solid #6F35FC; /* Cor Dragão */
+}
+
+.dark {
+  border: 2px solid #705746; /* Cor Noturno */
+}
+
+.fairy {
+  border: 2px solid #D685AD; /* Cor Fada */
+}
+.search-bar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

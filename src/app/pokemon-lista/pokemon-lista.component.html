@@ -1,0 +1,67 @@
+<div class="search-bar">
+    <input [(ngModel)]="filterValue" class="inputPrincipal" type="text" (input)="onInputChange()" placeholder="Pesquisar pokémon...">
+  </div>
+<div class="pokemon-grid">
+    <div class="box" *ngFor="let pokemon of onInputChange() | paginate: {itemsPerPage: 10, currentPage: page, totalItems: totalPokemons }"
+        (click)="abrirModal(pokemon)" [ngClass]="pokemon.types[0]?.type?.name">
+        <img [src]="pokemon.sprites?.front_default" alt="Pokemon">
+        <h4><b>ID: {{pokemon.id}}</b></h4>
+        <h3><b>Nome: </b>{{pokemon.name}}</h3>
+        <p>
+            <ng-container *ngIf="pokemon.types && pokemon.types.length > 0">
+                <b>Tipo: </b> {{pokemon.types[0]?.type?.name}}
+                <span *ngIf="pokemon.types.length > 1">{{pokemon.types[1]?.type?.name}}</span>
+            </ng-container>
+    </div>
+</div>
+
+<pagination-controls (pageChange)="page = $event; pokemons = []; getPokemons()"></pagination-controls>
+
+<!-- Modal -->
+<div class="modal" (click)="fecharModal()" *ngIf="pokemonSelecionado && pokemonModalSelecionado">
+    <div class="box" (click)="abrirModal(pokemonSelecionado)" [ngClass]="pokemonSelecionado.types[0]?.type?.name">
+    <div class="modal-content">
+      <span class="close" (click)="fecharModal()">&times;</span>
+      <h2>Detalhes do Pokémon</h2>
+      <ng-container *ngIf="pokemonModalSelecionado.stats && pokemonModalSelecionado.stats.length >= 6">
+        <img [src]="pokemonSelecionado.sprites?.front_default" alt="Pokemon"> <br>
+        <b>ID: {{pokemonSelecionado.id}}</b>
+        <br>
+        <b>Nome: </b>{{pokemonSelecionado.name}}
+        <p>
+        <ng-container *ngIf="pokemonSelecionado.types && pokemonSelecionado.types.length > 0">
+                <b>Tipo: </b> {{pokemonSelecionado.types[0]?.type?.name}}
+                <span *ngIf="pokemonSelecionado.types.length > 1">{{pokemonSelecionado.types[1]?.type?.name}}</span>
+            </ng-container>
+                <br>
+                <b>Saúde: </b> {{pokemonSelecionado.stats[0]?.base_stat}}
+                <br>
+                <b>ATF: </b>{{pokemonSelecionado.stats[1]?.base_stat}}
+                <br>
+                <b>DEF: </b>{{pokemonSelecionado.stats[2]?.base_stat}}
+                <br>
+                <b>ATAQUE ESPECIAL: </b>{{pokemonSelecionado.stats[3]?.base_stat}}
+                <br>
+                <b>DEFESA ESPECIAL: </b>{{pokemonSelecionado.stats[4]?.base_stat}}
+                <br>
+                <b>Rapidez: </b>{{pokemonSelecionado.stats[5]?.base_stat}}
+            </ng-container>
+            <br>
+            <ng-container *ngIf="pokemonSelecionado.abilities && pokemonSelecionado.abilities.length > 0">
+                <b>Habilidades: </b>
+                <ul>
+                    <li *ngFor="let ability of pokemonSelecionado.abilities"><i>{{ability.ability?.name}}</i></li>
+                </ul>
+            </ng-container>
+
+            <ng-container *ngIf="pokemonSelecionado.evolves_to && pokemonSelecionado.evolves_to.length > 0">
+                <b>Evolui para: </b> {{pokemonSelecionado.evolves_to[0]?.species?.name}} (a nível {{pokemonSelecionado.evolves_to[0]?.min_level}})
+            </ng-container>
+            <ng-container *ngIf="pokemonSelecionado.moves && pokemonSelecionado.moves.length > 0">
+                <!--<b>Ataques: </b>
+                 <ul>
+                    <li *ngFor="let move of pokemonSelecionado.moves">{{move.move?.name}}</li>
+                </ul> -->
+            </ng-container>
+    </div>
+</div>
